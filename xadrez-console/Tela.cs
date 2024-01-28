@@ -17,12 +17,23 @@ namespace xadrez_console
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno:  " + partida.turno);
-            Console.WriteLine("Agurdando jogada: " + partida.jogadorAtual);
-            if (partida.xeque)
+            if (!partida.terminada)
             {
-                Console.WriteLine("XEQUE!");
+
+                Console.WriteLine("Agurdando jogada: " + partida.jogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor: " + partida.jogadorAtual);
             }
         }
+
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
         {
@@ -34,11 +45,11 @@ namespace xadrez_console
             ConsoleColor aux = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Yellow;
             imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
-            Console.ForegroundColor = aux;  
+            Console.ForegroundColor = aux;
             Console.WriteLine();
         }
 
-        public static void imprimirConjunto(HashSet<Peca> conjunto) 
+        public static void imprimirConjunto(HashSet<Peca> conjunto)
         {
             Console.Write("[");
             foreach (Peca x in conjunto)
@@ -55,7 +66,7 @@ namespace xadrez_console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                        imprimirPeca(tab.peca(i, j));
+                    imprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
             }
@@ -72,11 +83,13 @@ namespace xadrez_console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if (posicoesPossiveis[i,j])
+                    if (posicoesPossiveis[i, j])
                     {
                         Console.BackgroundColor = fundoAlterado;
                     }
-                    else { Console.BackgroundColor = fundoOriginal;
+                    else
+                    {
+                        Console.BackgroundColor = fundoOriginal;
                     }
                     imprimirPeca(tab.peca(i, j));
                     Console.BackgroundColor = fundoOriginal;
