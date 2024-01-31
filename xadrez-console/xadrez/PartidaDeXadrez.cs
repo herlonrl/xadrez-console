@@ -40,8 +40,8 @@ namespace xadrez
                 capturadas.Add(pecaCapturada);
             }
 
-            // #jogadaEspecial roque pequeno
-            if(p is Rei && destino.coluna == origem.coluna + 2)
+            // #jogadaEspecial roque pequeno ***********************
+            if (p is Rei && destino.coluna == origem.coluna + 2)
             {
                 Posicao origemT = new Posicao(origem.linha, origem.coluna + 3);
                 Posicao destinoT = new Posicao(origem.linha, origem.coluna + 1);
