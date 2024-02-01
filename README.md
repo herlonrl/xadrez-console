@@ -3,34 +3,13 @@
   <img width="700" height="200" src="https://user-images.githubusercontent.com/66191563/88411134-ca94b100-cdad-11ea-9cd9-b6ef821dbf45.png">
 </p>
 
-# Índice
-   - [**Sobre o projeto**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#sobre-o-projeto)
-   - [**Sobre o tabuleiro**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#sobre-o-tabuleiro)
-     - [**Impressão do tabuleiro no console**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#impress%C3%A3o-do-tabuleiro-no-console)
-     - [**A exceção tabuleiroException**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#a-exce%C3%A7%C3%A3o-tabuleiroexception)
-   - [**Sobre as peças**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#sobre-as-pe%C3%A7as)
-     - [**Peças presentes no tabuleiro**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#pe%C3%A7as-presentes-no-tabuleiro)
-     - [**Método para colocar as peças no tabuleiro**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#m%C3%A9todo-para-colocar-as-pe%C3%A7as-no-tabuleiro)
-   - [**Como foi criada a restrição de movimento para cada peça**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#como-foi-criada-a-restri%C3%A7%C3%A3o-de-movimento-para-cada-pe%C3%A7a)
-      - [**Validar posição de origem**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#validar-posi%C3%A7%C3%A3o-de-origem)
-         - [**Posição nula**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#1-posi%C3%A7%C3%A3o-nula)
-         - [**Se a peça é do jogador**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#2-se-a-pe%C3%A7a-escolhida-%C3%A9-do-jogador)
-         - [**Se não existe movimentos possíveis**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#3-se-n%C3%A3o-existem-movimentos-poss%C3%ADveis)
-      - [**Validar posição de destino**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#validando-posi%C3%A7%C3%A3o-de-destino)
-   - [**Jogadas especiais**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#jogadas-especiais)
-      - [**Roque pequeno**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#1-roque-pequeno)
-      - [**Roque grande**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#2-roque-grande)
-      - [**En Passant**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#3-en-passant)
-      - [**Promoção**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#4-promo%C3%A7%C3%A3o)
-   - [**Baixar o jogo!**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#baixar-o-jogo)
-   - [**Contato**](https://github.com/JulianoCCMoreira/Xadrez-de-Console/new/master?readme=1#contato-julianocolerecmoreiragmailcom)
 
 # Sobre o projeto
 Este foi um projeto desenvolvido durante o curso de C# do @acenelio. A proposta principal dele é aplicar nossos conhecimentos na linguagem C# para criar um jogo de Xadrez que rodasse via console. Ele pode parecer um projeto simples, porém ele é muito mais complicado do que você imagina.
 
 # Sobre o tabuleiro
   ### Impressão do tabuleiro no console
-  A impressão do tabuleiro foi a parte mais simples desse projeto. Eu utilizei um *for* para criar "-" com um espaço entre eles no tamanho de oito por oito, totalizando sessenta e quatro casas (o tamanho padrão de um tabuleiro de Xadrez).
+  A impressão do tabuleiro foi a parte mais simples desse projeto. Foi utilizado um *for* para criar "-" com um espaço entre eles no tamanho de oito por oito, totalizando sessenta e quatro casas (o tamanho padrão de um tabuleiro de Xadrez).
 
 ##### Código do método imprimirTabuleiro:
 ```cs
@@ -91,7 +70,7 @@ public static void imprimirTabuleiro(Tabuleiro tab)
 </p>
  
  ### Método para colocar as peças no tabuleiro
- Eu implementei um método para colocar as peças em determinada posição. Cada peça possui a sua letra especifica, o método que mostra essa letra é este:
+ Foi implementado um método para colocar as peças em determinada posição. Cada peça possui a sua letra especifica, o método que mostra essa letra é este:
  ##### Código:
  ```cs
  public override string ToString()
@@ -101,7 +80,7 @@ public static void imprimirTabuleiro(Tabuleiro tab)
  ```
  > *Neste caso a letra R é retornada, pois, este pedaço do código é do Rei.*
  
- Então eu necessitava de um modo de colocar esta letra no tabuleiro, então na classe *PartidaXadrez* eu criei dois métodos:
+ Então eu necessitava de um modo de colocar esta letra no tabuleiro, então na classe *PartidaXadrez* criado em dois métodos:
  
  ##### Método colocarNovaPeca:
  ```cs
@@ -115,7 +94,7 @@ public static void imprimirTabuleiro(Tabuleiro tab)
  > Este método recebe uma coluna em char e um número, e o método *toPosicao()* converte esses dados em uma posição valida na matriz.
  
  ##### Método colocarPecas:
- Neste método eu criava uma peça com o *colocarNovaPeca()* deste modo:
+ Neste método criada uma peça com o *colocarNovaPeca()* deste modo:
 
  
  ```cs
@@ -129,7 +108,7 @@ Na classe *PartidaXadrez* foram criados dois métodos, o método *validarPosicao
 Este método recebe uma posição informada pelo usuário (a coordenada de peça que ele quer mover). Ele foi dividido em tês *if's*.
 
 #### 1. Posição nula
-   Para testar se uma posição é nula eu utilizei a posição informada pelo usuário e a testei com o seguinte código:
+   Para testar se uma posição é nula é utilizada a posição informada pelo usuário e testada com o seguinte código:
 
    ```cs
 if ( tab.peca(pos) == null)
@@ -140,7 +119,7 @@ if ( tab.peca(pos) == null)
    ```
 
 #### 2. Se a peça escolhida é do jogador
-   Eu tive que testar se a peça escolhida era da cor do jogador atual, para testar foi utilizado o seguinte código:
+   Tem que testar se a peça escolhida era da cor do jogador atual, para testar foi utilizado o seguinte código:
 
    ```cs
  if (jogadorAtual != tab.peca(pos).cor)
@@ -150,7 +129,7 @@ if ( tab.peca(pos) == null)
    ```
    
 #### 3. Se não existem movimentos possíveis
- Eu testei se a peça selecionada possuía movimentos possíveis, caso fosse escolhida uma peça que não podia se mover ocorria uma exceção.
+ Testado se a peça selecionada possuía movimentos possíveis, caso fosse escolhida uma peça que não podia se mover ocorria uma exceção.
 
  ```cs
  if ( !tab.peca(pos).existeMovimentosPossiveis())
@@ -171,7 +150,6 @@ if ( !tab.peca(origem).podeMoverPara(destino))
 ```
 
 # Jogadas especiais
- Neste tópico eu mencionarei as jogadas especiais implementadas no jogo.
 
  #### 1. Roque Pequeno
  O roque pequeno ocorre quando o rei e uma torre não se moveram, e entre eles possuem duas casas vazias.
@@ -190,7 +168,7 @@ if ( !tab.peca(origem).podeMoverPara(destino))
  ```
  
  #### 2. Roque Grande
- O roque pequeno ocorre quando o rei e uma torre não se moveram, e entre eles têm que possuir quatro casas vazias.
+ O roque grande ocorre quando o rei e uma torre não se moveram, e entre eles têm que possuir quatro casas vazias.
 
  ```cs
 // #jogadaespecial roque grande
@@ -237,7 +215,7 @@ if (p is Peao)
 }
 ```
   
- #### 4. Promoção
+ #### 4. Promoção do Peão
 A jogada promoção ocorre quando um peão chega no limite adversário do tabuleiro, então o peão pode se torna: Dama, Bispo, Cavalo e uma Torre. Para esta jogada especial foi necessário criar uma interação com o usuário para ele escolher qual peça ele quer tornar, e depois promover o peão.
 
  ##### Exemplo de promoção de um peão para um cavalo:
@@ -254,4 +232,4 @@ case 'c':
      break;
 ```
 
-### Contato: julianocolerecmoreira@gmail.com
+    
